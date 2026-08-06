@@ -1,0 +1,274 @@
+!Command: show running-config
+!No configuration change since last restart
+!Time: Thu Aug  6 15:01:50 2026
+
+version 10.5(2) Bios:version
+hostname nsox1
+vdc nsox1 id 1
+  limit-resource vlan minimum 16 maximum 4094
+  limit-resource vrf minimum 2 maximum 4096
+  limit-resource port-channel minimum 0 maximum 511
+  limit-resource m4route-mem minimum 58 maximum 58
+  limit-resource m6route-mem minimum 8 maximum 8
+
+cfs eth distribute
+feature ospf
+feature interface-vlan
+feature hsrp
+feature lacp
+feature vpc
+clock timezone MST -7 0
+
+no password strength-check
+username admin password 5 $5$PMHDED$XhWlmjb6pJlNovFKVemxkSUjwCkjmXoVfnFQ071jky3  role network-admin
+username lab password 5 $5$BOGJDO$CipRM3rNw9kK0evNcp4NUVSF4Ye2UWRfNFXFdENupa9  role network-admin
+username lab passphrase  lifetime 99999 warntime 14 gracetime 3
+no password secure-mode
+ip domain-lookup
+copp profile strict
+snmp-server user lab network-admin auth md5 042AAF5C3E421DF10F5C79D24B74F3BF0C5E priv aes-128 055ECE315A9BA401B3EAD65BCAFA670FC497 localizedV2key
+snmp-server user admin network-admin auth md5 164B1562DEF5ABBA8C20B5AB3916CA5A8C9B priv aes-128 330D730AC916061861C4062CA499509A4A50 localizedV2key
+rmon event 1 log trap public description FATAL(1) owner PMON@FATAL
+rmon event 2 log trap public description CRITICAL(2) owner PMON@CRITICAL
+rmon event 3 log trap public description ERROR(3) owner PMON@ERROR
+rmon event 4 log trap public description WARNING(4) owner PMON@WARNING
+rmon event 5 log trap public description INFORMATION(5) owner PMON@INFO
+
+ip route 0.0.0.0/0 172.16.192.57 171
+ip route 0.0.0.0/0 172.16.192.65 171
+vlan 1,252,801
+vlan 252
+  name Server-VLAN
+vlan 801
+  name EPBR
+
+vrf context management
+vrf context vpc-keepalive
+vpc domain 201
+  peer-switch
+  role priority 1000
+  system-priority 1
+  peer-keepalive destination 172.16.192.102 source 172.16.192.101 vrf vpc-keepalive
+  delay restore 150
+  peer-gateway
+  layer3 peer-router
+  ip arp synchronize
+
+interface Vlan1
+  no ip redirects
+  no ipv6 redirects
+
+interface Vlan252
+  description Phoenix Servers
+  no shutdown
+  mtu 9216
+  no ip redirects
+  ip address 172.16.253.2/22
+  no ipv6 redirects
+  ip ospf passive-interface
+  ip router ospf 10 area 0.0.0.0
+  hsrp version 2
+  hsrp delay reload 150
+  hsrp 252
+    authentication md5 key-string 3m3rg3ncy!
+    preempt
+    priority 105
+    ip 172.16.252.1
+
+interface Vlan801
+  no shutdown
+  no ip redirects
+  ip address 10.252.250.18/28
+  no ipv6 redirects
+
+interface port-channel1
+  description *** vPC Link to nsox2 ***
+  switchport mode trunk
+  spanning-tree port type network
+  vpc peer-link
+
+interface port-channel100
+  description ** vPC link to sw1 ***
+  switchport mode trunk
+  vpc 100
+
+interface port-channel801
+  description ** vPC link to FW1 ***
+  switchport mode trunk
+  vpc 801
+
+interface Ethernet1/1
+  description *** peer keepalive to nsox2 ***
+  no switchport
+  vrf member vpc-keepalive
+  ip address 172.16.192.101/30
+  no shutdown
+
+interface Ethernet1/2
+  description *** vPC link to nsox2 ***
+  switchport mode trunk
+  spanning-tree port type network
+  channel-group 1 mode active
+
+interface Ethernet1/3
+  description *** vPC link to nsox2 ***
+  switchport mode trunk
+  spanning-tree port type network
+  channel-group 1 mode active
+
+interface Ethernet1/4
+  description L3-transit-to-c9k3-g1/0/1
+  no switchport
+  mtu 8978
+  ip address 172.16.192.58/30
+  ip router ospf 10 area 0.0.0.0
+  no shutdown
+
+interface Ethernet1/5
+  description L3-transit-to-c9k4-g1/0/1
+  no switchport
+  mtu 8978
+  ip address 172.16.192.66/30
+  ip router ospf 10 area 0.0.0.0
+  no shutdown
+
+interface Ethernet1/6
+  description L3 transit to nsox2 for route protocols
+  no switchport
+  mtu 9216
+  ip address 10.60.194.1/30
+  ip router ospf 10 area 0.0.0.0
+  no shutdown
+
+interface Ethernet1/7
+  description L2 transit to FW1
+  switchport mode trunk
+  channel-group 801 mode active
+
+interface Ethernet1/8
+  shutdown
+
+interface Ethernet1/9
+  description ** vPC link to sw1 ***
+  switchport mode trunk
+  channel-group 100 mode active
+
+interface Ethernet1/10
+
+interface Ethernet1/11
+
+interface Ethernet1/12
+
+interface Ethernet1/13
+
+interface Ethernet1/14
+
+interface Ethernet1/15
+
+interface Ethernet1/16
+
+interface Ethernet1/17
+
+interface Ethernet1/18
+
+interface Ethernet1/19
+
+interface Ethernet1/20
+
+interface Ethernet1/21
+
+interface Ethernet1/22
+
+interface Ethernet1/23
+
+interface Ethernet1/24
+
+interface Ethernet1/25
+
+interface Ethernet1/26
+
+interface Ethernet1/27
+
+interface Ethernet1/28
+
+interface Ethernet1/29
+
+interface Ethernet1/30
+
+interface Ethernet1/31
+
+interface Ethernet1/32
+
+interface Ethernet1/33
+
+interface Ethernet1/34
+
+interface Ethernet1/35
+
+interface Ethernet1/36
+
+interface Ethernet1/37
+
+interface Ethernet1/38
+
+interface Ethernet1/39
+
+interface Ethernet1/40
+
+interface Ethernet1/41
+
+interface Ethernet1/42
+
+interface Ethernet1/43
+
+interface Ethernet1/44
+
+interface Ethernet1/45
+
+interface Ethernet1/46
+
+interface Ethernet1/47
+
+interface Ethernet1/48
+
+interface Ethernet1/49
+
+interface Ethernet1/50
+
+interface Ethernet1/51
+
+interface Ethernet1/52
+
+interface Ethernet1/53
+
+interface Ethernet1/54
+
+interface Ethernet1/55
+
+interface Ethernet1/56
+
+interface Ethernet1/57
+
+interface Ethernet1/58
+
+interface Ethernet1/59
+
+interface Ethernet1/60
+
+interface Ethernet1/61
+
+interface Ethernet1/62
+
+interface Ethernet1/63
+
+interface Ethernet1/64
+
+interface mgmt0
+  vrf member management
+icam monitor scale
+
+cli alias name wr copy run star
+line console
+line vty
+boot nxos bootflash:/nxos64-cs.10.5.2.F.bin
+router ospf 10
