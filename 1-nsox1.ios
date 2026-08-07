@@ -1,6 +1,6 @@
 !Command: show running-config
-!No configuration change since last restart
-!Time: Thu Aug  6 15:01:50 2026
+!Running configuration last done at: Thu Aug  6 15:57:32 2026
+!Time: Thu Aug  6 16:02:58 2026
 
 version 10.5(2) Bios:version
 hostname nsox1
@@ -95,6 +95,8 @@ interface port-channel100
 interface port-channel801
   description ** vPC link to FW1 ***
   switchport mode trunk
+  switchport trunk native vlan 801
+  switchport trunk allowed vlan 801
   vpc 801
 
 interface Ethernet1/1
@@ -143,6 +145,8 @@ interface Ethernet1/6
 interface Ethernet1/7
   description L2 transit to FW1
   switchport mode trunk
+  switchport trunk native vlan 801
+  switchport trunk allowed vlan 801
   channel-group 801 mode active
 
 interface Ethernet1/8
