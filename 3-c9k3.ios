@@ -1,6 +1,6 @@
-Current configuration : 5594 bytes
+Current configuration : 5604 bytes
 !
-! Last configuration change at 19:00:52 UTC Fri Jul 31 2026
+! Last configuration change at 23:06:16 UTC Mon Aug 10 2026
 !
 version 17.15
 service timestamps debug datetime msec
@@ -151,14 +151,14 @@ interface GigabitEthernet0/0
 interface GigabitEthernet1/0/1
  description L3-transit-to-nsox1-e1/4
  no switchport
- mtu 8978
+ mtu 1500
  ip address 172.16.192.57 255.255.255.252
  ip ospf 10 area 0.0.0.0
 !
 interface GigabitEthernet1/0/2
  description L3-transit-to-nsox2-e1/5
  no switchport
- mtu 8978
+ mtu 1500
  ip address 172.16.192.61 255.255.255.252
  ip ospf 10 area 0.0.0.0
 !
@@ -166,6 +166,7 @@ interface GigabitEthernet1/0/3
  switchport trunk allowed vlan 1,4
  switchport mode trunk
  switchport nonegotiate
+ mtu 1500
 !
 interface GigabitEthernet1/0/4
 !

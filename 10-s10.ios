@@ -1,0 +1,128 @@
+Current configuration : 1915 bytes
+!
+! Last configuration change at 15:56:42 MST Mon Aug 10 2026
+!
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+service compress-config
+!
+hostname S10
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+clock timezone MST -7 0
+!
+!
+!
+!
+!
+no ip icmp rate-limit unreachable
+!
+!
+!
+no ip domain-lookup
+ip cef
+no ipv6 cef
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Port-channel1
+ switchport trunk allowed vlan 801
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface Ethernet0/0
+ description L3-transit-to-c9k3-g1/0/1
+ no switchport
+ ip address 172.16.192.58 255.255.255.252
+ ip ospf 10 area 0.0.0.0
+!
+interface Ethernet0/1
+ description L3-transit-to-c9k4-g1/0/1
+ no switchport
+ ip address 172.16.192.66 255.255.255.252
+ ip ospf 10 area 0.0.0.0
+!
+interface Ethernet0/2
+ switchport trunk allowed vlan 801
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+ channel-group 1 mode active
+!
+interface Ethernet0/3
+ switchport trunk allowed vlan 801
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+ channel-group 1 mode active
+!
+interface Ethernet1/0
+!
+interface Ethernet1/1
+!
+interface Ethernet1/2
+!
+interface Ethernet1/3
+!
+interface Vlan801
+ ip address 10.252.250.20 255.255.255.240
+ ip ospf 10 area 0.0.0.0
+!
+router ospf 10
+ router-id 172.16.192.58
+!
+ip forward-protocol nd
+!
+ip tcp synwait-time 5
+ip http server
+ip http secure-server
+!
+ip ssh server algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+!
+!
+!
+!
+!
+control-plane
+!
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line vty 0 4
+ login
+!
+!
+!
+end

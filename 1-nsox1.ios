@@ -1,6 +1,6 @@
 !Command: show running-config
-!Running configuration last done at: Thu Aug  6 15:57:32 2026
-!Time: Thu Aug  6 16:02:58 2026
+!Running configuration last done at: Mon Aug 10 15:50:26 2026
+!Time: Mon Aug 10 16:01:34 2026
 
 version 10.5(2) Bios:version
 hostname nsox1
@@ -80,6 +80,14 @@ interface Vlan801
   no ip redirects
   ip address 10.252.250.18/28
   no ipv6 redirects
+  ip router ospf 10 area 0.0.0.0
+  hsrp version 2
+  hsrp delay reload 150
+  hsrp 801
+    authentication md5 key-string 3m3rg3ncy!
+    preempt
+    priority 105 forwarding-threshold lower 1 upper 105
+    ip 10.252.250.17
 
 interface port-channel1
   description *** vPC Link to nsox2 ***
@@ -92,10 +100,19 @@ interface port-channel100
   switchport mode trunk
   vpc 100
 
+interface port-channel101
+  switchport mode trunk
+  switchport trunk allowed vlan 801
+  vpc 101
+
+interface port-channel102
+  switchport mode trunk
+  switchport trunk allowed vlan 801
+  vpc 102
+
 interface port-channel801
   description ** vPC link to FW1 ***
   switchport mode trunk
-  switchport trunk native vlan 801
   switchport trunk allowed vlan 801
   vpc 801
 
@@ -119,20 +136,14 @@ interface Ethernet1/3
   channel-group 1 mode active
 
 interface Ethernet1/4
-  description L3-transit-to-c9k3-g1/0/1
-  no switchport
-  mtu 8978
-  ip address 172.16.192.58/30
-  ip router ospf 10 area 0.0.0.0
-  no shutdown
+  switchport mode trunk
+  switchport trunk allowed vlan 801
+  channel-group 101 mode active
 
 interface Ethernet1/5
-  description L3-transit-to-c9k4-g1/0/1
-  no switchport
-  mtu 8978
-  ip address 172.16.192.66/30
-  ip router ospf 10 area 0.0.0.0
-  no shutdown
+  switchport mode trunk
+  switchport trunk allowed vlan 801
+  channel-group 102 mode active
 
 interface Ethernet1/6
   description L3 transit to nsox2 for route protocols
@@ -145,7 +156,6 @@ interface Ethernet1/6
 interface Ethernet1/7
   description L2 transit to FW1
   switchport mode trunk
-  switchport trunk native vlan 801
   switchport trunk allowed vlan 801
   channel-group 801 mode active
 
@@ -273,6 +283,7 @@ icam monitor scale
 
 cli alias name wr copy run star
 line console
+  exec-timeout 0
 line vty
 boot nxos bootflash:/nxos64-cs.10.5.2.F.bin
 router ospf 10
