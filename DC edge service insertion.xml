@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RDMExport>
+  <Connections>
+    <Connection>
+      <AppVersion>2026.2</AppVersion>
+      <ConnectionType>Group</ConnectionType>
+      <Group>DC edge service insertion</Group>
+      <ID>743cc492-e1b2-4023-904c-4bd37aa26f19</ID>
+      <Name>DC edge service insertion</Name>
+      <TemplateSourceID>1c81e3dc-0bab-4618-86c1-5efa11f5ab01</TemplateSourceID>
+      <GroupDetails>
+        <GroupType>Device</GroupType>
+        <Host>100.64.0.21</Host>
+        <SafePassword>08NprNFLcQM=</SafePassword>
+        <UserName>lab</UserName>
+      </GroupDetails>
+      <MetaInformation>
+        <PasswordHistory>
+          <PasswordHistory>
+            <LoggedModifiedBy>ZEUS\root</LoggedModifiedBy>
+            <ModifiedBy>ZEUS\root</ModifiedBy>
+            <ModifiedDateTime>2026-07-29T21:14:12</ModifiedDateTime>
+            <SafePassword>LqdkNLlz5fM=</SafePassword>
+          </PasswordHistory>
+        </PasswordHistory>
+      </MetaInformation>
+    </Connection>
+    <Connection>
+      <AppVersion>2026.2</AppVersion>
+      <ConnectionType>Telnet</ConnectionType>
+      <CredentialConnectionID>B87B29D9-9239-4D7B-86D8-9B53DCD3BA9F</CredentialConnectionID>
+      <Group>DC edge service insertion</Group>
+      <HostSourceMode>Inherited</HostSourceMode>
+      <ID>09a238b4-5b77-4fd8-b96b-ec22b5a1d43c</ID>
+      <Name>(1) nsox1</Name>
+      <OpenEmbedded>true</OpenEmbedded>
+      <Terminal>
+        <HostPort>30035</HostPort>
+        <ProxyMode>Custom</ProxyMode>
+      </Terminal>
+    </Connection>
+    <Connection>
+      <AppVersion>2026.2</AppVersion>
+      <ConnectionType>Telnet</ConnectionType>
+      <CredentialConnectionID>B87B29D9-9239-4D7B-86D8-9B53DCD3BA9F</CredentialConnectionID>
+      <Group>DC edge service insertion</Group>
+      <HostSourceMode>Inherited</HostSourceMode>
+      <ID>e521b1db-73c3-4074-8e42-9e93b8f246e4</ID>
+      <Name>(2) nsox2</Name>
+      <OpenEmbedded>true</OpenEmbedded>
+      <Terminal>
+        <HostPort>30036</HostPort>
+        <ProxyMode>Custom</ProxyMode>
+      </Terminal>
+    </Connection>
+    <Connection>
+      <AppVersion>2026.2</AppVersion>
+      <ConnectionType>Telnet</ConnectionType>
+      <CredentialConnectionID>B87B29D9-9239-4D7B-86D8-9B53DCD3BA9F</CredentialConnectionID>
+      <Group>DC edge service insertion</Group>
+      <HostSourceMode>Inherited</HostSourceMode>
+      <ID>adab5df4-8a8b-4c79-bf69-c88252990565</ID>
+      <Name>(3) c9k3</Name>
+      <OpenEmbedded>true</OpenEmbedded>
+      <Terminal>
+        <HostPort>30037</HostPort>
+        <ProxyMode>Custom</ProxyMode>
+      </Terminal>
+    </Connection>
+    <Connection>
+      <AppVersion>2026.2</AppVersion>
+      <ConnectionType>Telnet</ConnectionType>
+      <CredentialConnectionID>B87B29D9-9239-4D7B-86D8-9B53DCD3BA9F</CredentialConnectionID>
+      <Group>DC edge service insertion</Group>
+      <HostSourceMode>Inherited</HostSourceMode>
+      <ID>170df207-6d94-4a1d-9cfa-1e36734ba4d5</ID>
+      <Name>(4) c9k4</Name>
+      <OpenEmbedded>true</OpenEmbedded>
+      <Terminal>
+        <HostPort>30038</HostPort>
+        <ProxyMode>Custom</ProxyMode>
+      </Terminal>
+    </Connection>
+    <Connection>
+      <AppVersion>2026.2</AppVersion>
+      <ConnectionType>VNC</ConnectionType>
+      <CredentialConnectionID>B87B29D9-9239-4D7B-86D8-9B53DCD3BA9F</CredentialConnectionID>
+      <Group>DC edge service insertion</Group>
+      <HostSourceMode>Inherited</HostSourceMode>
+      <ID>49787b89-df7d-4034-b7c6-81556e329648</ID>
+      <Name>(5) Win10</Name>
+      <OpenEmbedded>true</OpenEmbedded>
+      <VNC>
+        <Host>:30039</Host>
+        <Port>30039</Port>
+      </VNC>
+    </Connection>
+    <Connection>
+      <AppVersion>2026.2</AppVersion>
+      <ConnectionType>Telnet</ConnectionType>
+      <CredentialConnectionID>B87B29D9-9239-4D7B-86D8-9B53DCD3BA9F</CredentialConnectionID>
+      <Group>DC edge service insertion</Group>
+      <HostSourceMode>Inherited</HostSourceMode>
+      <ID>4ff9a4d7-a7a6-4421-a18d-74f51863ee8d</ID>
+      <Name>(6) sw1</Name>
+      <OpenEmbedded>true</OpenEmbedded>
+      <Terminal>
+        <HostPort>30040</HostPort>
+        <ProxyMode>Custom</ProxyMode>
+      </Terminal>
+    </Connection>
+    <Connection>
+      <AppVersion>2026.2</AppVersion>
+      <ConnectionType>VNC</ConnectionType>
+      <CredentialConnectionID>B87B29D9-9239-4D7B-86D8-9B53DCD3BA9F</CredentialConnectionID>
+      <Group>DC edge service insertion</Group>
+      <HostSourceMode>Inherited</HostSourceMode>
+      <ID>29fdcbfb-a4a5-47c7-a903-19d94e3980ae</ID>
+      <Name>(7) winserver</Name>
+      <OpenEmbedded>true</OpenEmbedded>
+      <VNC>
+        <Host>:30041</Host>
+        <Port>30041</Port>
+      </VNC>
+    </Connection>
+    <Connection>
+      <AppVersion>2026.2</AppVersion>
+      <ConnectionType>Telnet</ConnectionType>
+      <CredentialConnectionID>B87B29D9-9239-4D7B-86D8-9B53DCD3BA9F</CredentialConnectionID>
+      <Group>DC edge service insertion</Group>
+      <HostSourceMode>Inherited</HostSourceMode>
+      <ID>e2c7f811-a100-42a0-99c1-8935542ccd5e</ID>
+      <Name>(8) FW1</Name>
+      <OpenEmbedded>true</OpenEmbedded>
+      <Terminal>
+        <HostPort>30042</HostPort>
+        <ProxyMode>Custom</ProxyMode>
+      </Terminal>
+    </Connection>
+    <Connection>
+      <AppVersion>2026.2</AppVersion>
+      <ConnectionType>Telnet</ConnectionType>
+      <CredentialConnectionID>B87B29D9-9239-4D7B-86D8-9B53DCD3BA9F</CredentialConnectionID>
+      <Group>DC edge service insertion</Group>
+      <HostSourceMode>Inherited</HostSourceMode>
+      <ID>2265daae-6417-4433-bf02-e577feb4342c</ID>
+      <Name>(9) FW9</Name>
+      <OpenEmbedded>true</OpenEmbedded>
+      <Terminal>
+        <HostPort>30043</HostPort>
+        <ProxyMode>Custom</ProxyMode>
+      </Terminal>
+    </Connection>
+    <Connection>
+      <AppVersion>2026.2</AppVersion>
+      <ConnectionType>Telnet</ConnectionType>
+      <CredentialConnectionID>B87B29D9-9239-4D7B-86D8-9B53DCD3BA9F</CredentialConnectionID>
+      <Group>DC edge service insertion</Group>
+      <HostSourceMode>Inherited</HostSourceMode>
+      <ID>4d1bcb98-33cd-4400-97ff-4835ea276cf4</ID>
+      <Name>(10) s10</Name>
+      <OpenEmbedded>true</OpenEmbedded>
+      <Terminal>
+        <HostPort>30044</HostPort>
+        <ProxyMode>Custom</ProxyMode>
+      </Terminal>
+    </Connection>
+    <Connection>
+      <AppVersion>2026.2</AppVersion>
+      <ConnectionType>Telnet</ConnectionType>
+      <CredentialConnectionID>B87B29D9-9239-4D7B-86D8-9B53DCD3BA9F</CredentialConnectionID>
+      <Group>DC edge service insertion</Group>
+      <HostSourceMode>Inherited</HostSourceMode>
+      <ID>27c6467b-4246-47d2-af30-a5cfa4e98aff</ID>
+      <Name>(11) s11</Name>
+      <OpenEmbedded>true</OpenEmbedded>
+      <Terminal>
+        <HostPort>30045</HostPort>
+        <ProxyMode>Custom</ProxyMode>
+      </Terminal>
+    </Connection>
+  </Connections>
+  <DatabaseID>bb265229-f943-4f18-b47e-8db9394e5f61</DatabaseID>
+  <Version>2</Version>
+</RDMExport>
